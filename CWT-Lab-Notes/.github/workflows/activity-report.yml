@@ -1,0 +1,33 @@
+name: Weekly Activity Report
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'  # Every Sunday midnight UTC
+  workflow_dispatch:
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate weekly report
+        run: |
+          echo "# 📊 Weekly Activity Report" > activity-report.md
+          echo "" >> activity-report.md
+          echo "Generated on $(date)" >> activity-report.md
+          echo "" >> activity-report.md
+          echo "## Papers uploaded this week:" >> activity-report.md
+          git log --since='7 days ago' --pretty=format:'- %s' -- papers/ >> activity-report.md || echo "No new papers." >> activity-report.md
+          echo "" >> activity-report.md
+          echo "## Presentations uploaded this week:" >> activity-report.md
+          git log --since='7 days ago' --pretty=format:'- %s' -- presentations/ >> activity-report.md || echo "No new presentations." >> activity-report.md
+
+      - name: Commit and push report
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@users.noreply.github.com'
+          git add activity-report.md
+          git commit -m "Update weekly activity report" || echo "No changes to commit"
+          git push
