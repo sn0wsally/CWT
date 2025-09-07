@@ -3,7 +3,9 @@
 
 ### Team Leader: Subin Hyun
 interests: personalized treatments/drugs, medical imaging, drug discovery, data analysis, data augmentation, transformer-based model, RL, NLP, LLM
+
 more info: [github.com/sn0wsally/README.md](https://github.com/sn0wsally)
+
 contact: Subin.Hyun@ghent.ac.kr
 
 ### Team Co-leader: Suah Kim
