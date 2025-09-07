@@ -1,7 +1,0 @@
-[
-  {"name": "CV", "color": "1f77b4", "description": "Computer Vision related paper"},
-  {"name": "NLP", "color": "ff7f0e", "description": "Natural Language Processing paper"},
-  {"name": "Time series", "color": "2ca02c", "description": "Time-series data analysis"},
-  {"name": "Reinforcement Learning (RL)", "color": "d62728", "description": "RL papers and methods"},
-  {"name": "Traditional ML", "color": "9467bd", "description": "Classical machine learning methods"}
-]
