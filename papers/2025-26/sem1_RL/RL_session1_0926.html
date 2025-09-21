@@ -115,7 +115,7 @@
         <div class="slide-content text-center">
             <h1 class="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 pb-2">RL team Paper Review Session</h1>
             <p class="text-2xl mt-4 text-slate-600">Foundations and Evolution of Reinforcement Learning</p>
-            <div class="mt-12 text-left max-w-2xl mx-auto border-t pt-8">
+            <div class="mt-12 text-left max-w-3xl mx-auto border-t pt-8">
                 <p class="paper-ref text-lg"><strong>Paper 1:</strong> "Introduction to Reinforcement Learning" by Ghasemi & Ebrahimi.</p>
                 <p class="paper-ref text-lg mt-2"><strong>Paper 2:</strong> "Understanding Reinforcement Learning Algorithms" by Chadi & Mousannif.</p>
             </div>
@@ -127,7 +127,7 @@
     <div class="slide">
         <div class="slide-content">
             <h2 class="text-center text-blue-600">Agenda</h2>
-            <ol class="text-2xl space-y-6 max-w-3xl mx-auto mt-8">
+            <ol class="text-2xl space-y-6 max-w-5xl mx-auto mt-8">
                 <li><strong>High-Level Overview:</strong> Comparing the two papers' approaches.</li>
                 <li><strong>The Foundations:</strong> What is Reinforcement Learning?</li>
                 <li><strong>The Evolutionary Path of Algorithms:</strong> A story of solving limitations.</li>
@@ -164,11 +164,11 @@
     <div class="slide">
         <div class="slide-content">
             <h2 class="text-center text-blue-600 !mb-4">The Foundations: The Core Loop</h2>
-            <p class="text-center max-w-4xl mx-auto">At its heart, RL is about an <strong>Agent</strong> learning to make decisions by interacting with an <strong>Environment</strong> to achieve a goal.</p>
+            <p class="text-center max-w-5xl mx-auto">At its heart, RL is about an <strong>Agent</strong> learning to make decisions by interacting with an <strong>Environment</strong> to achieve a goal.</p>
             <div class="my-2 text-center">
                  <img src="https://storage.googleapis.com/maker-media-project-images/2255/RL_agent_environment_loop.png" alt="Reinforcement Learning agent-environment loop diagram" class="mx-auto rounded-lg max-h-52" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/475569?text=Agent-Environment+Loop';">
             </div>
-            <div class="max-w-3xl mx-auto">
+            <div class="max-w-5xl mx-auto">
                 <ol class="text-lg space-y-2">
                     <li>The agent observes the environment's current <strong>State (S<sub>t</sub>)</strong>.</li>
                     <li>Based on the state, the agent chooses an <strong>Action (A<sub>t</sub>)</strong>.</li>
@@ -184,7 +184,7 @@
         <div class="slide-content">
             <h2 class="text-center text-blue-600">The Language of RL: Markov Decision Process</h2>
             <p class="text-center mb-8">This interaction is formally described by a <strong>Markov Decision Process (MDP)</strong>.</p>
-            <div class="space-y-4 max-w-3xl mx-auto">
+            <div class="space-y-4 max-w-5xl mx-auto">
                 <p><strong>S</strong>: A set of all possible <strong>states</strong> the agent can be in.</p>
                 <p><strong>A</strong>: A set of all possible <strong>actions</strong> the agent can take.</p>
                 <p><strong>P</strong>: The <strong>transition probability</strong> <code>P(s'|s, a)</code>. The rules of the environment; the likelihood of ending in state <code>s'</code> after taking action <code>a</code> in state <code>s</code>.</p>
@@ -227,9 +227,9 @@
             <h2 class="text-center text-blue-600">The Evolutionary Path (1/4)</h2>
             <div class="max-w-3xl mx-auto">
                 <h3>Algorithm: Q-Learning</h3>
-                <p><strong>Motivation:</strong> A simple, powerful way to solve the RL problem without needing a model of the environment (it's <em>model-free</em>).</p>
-                <p class="mt-4"><strong>Inner Workings:</strong> It uses a giant lookup table (a "Q-table") to store the value for every possible state-action pair. It learns by updating table entries based on the rewards it receives.</p>
-                <p class="mt-6 text-red-600 bg-red-50 p-4 rounded-lg"><strong>Limitation: The Curse of Dimensionality.</strong> The table becomes impossibly large for complex problems with millions of states (like chess) or continuous states (like a robot's joint angle).</p>
+                <p><strong>Motivation:</strong> A simple, powerful way to solve the RL problem <br> without needing a model of the environment (it's <em>model-free</em>).</p>
+                <p class="mt-4"><strong>Inner Workings:</strong> It uses a giant lookup table (a "Q-table") <br> to store the value for every possible state-action pair. <br> It learns by updating table entries based on the rewards it receives.</p>
+                <p class="mt-6 text-red-600 bg-red-50 p-4 rounded-lg"><strong>Limitation: The Curse of Dimensionality.</strong> <br> The table becomes impossibly large for complex problems <br> with millions of states (like chess) or continuous states (like a robot's joint angle).</p>
             </div>
         </div>
     </div>
@@ -238,7 +238,7 @@
     <div class="slide">
         <div class="slide-content">
             <h2 class="text-center text-blue-600">The Evolutionary Path (2/4)</h2>
-            <div class="max-w-3xl mx-auto">
+            <div class="max-w-5xl mx-auto">
                 <h3>Algorithm: Deep Q-Network (DQN)</h3>
                 <p><strong>Motivation:</strong> To solve Q-learning's scaling problem. Instead of a table, it uses a neural network to <em>approximate</em> the Q-value function: <code>Q(s, a; &theta;)</code>.</p>
                 <div class="mt-4 space-y-4">
@@ -254,7 +254,7 @@
     <div class="slide">
         <div class="slide-content">
             <h2 class="text-center text-blue-600">The Evolutionary Path (3/4)</h2>
-            <div class="max-w-3xl mx-auto">
+            <div class="max-w-5xl mx-auto">
                 <h3>Algorithm: REINFORCE (Policy Gradient)</h3>
                 <p><strong>Motivation:</strong> A paradigm shift. Instead of learning a value function and deriving a policy, why not learn the policy <strong>directly</strong>? This is a more natural fit for continuous action spaces.</p>
                 <p class="mt-4"><strong>Inner Workings:</strong> The policy itself is a neural network <code>&pi;(a|s; &theta;)</code>. It directly adjusts the network's parameters <code>&theta;</code> via gradient ascent to make actions that led to high rewards more likely.</p>
@@ -267,7 +267,7 @@
     <div class="slide">
         <div class="slide-content">
             <h2 class="text-center text-blue-600">The Evolutionary Path (4/4)</h2>
-            <div class="max-w-3xl mx-auto">
+            <div class="max-w-5xl mx-auto">
                 <h3>Algorithm Family: Actor-Critic Methods (PPO, A2C, etc.)</h3>
                 <p><strong>Motivation:</strong> Combine the strengths of value-based (DQN) and policy-based (REINFORCE) methods to get more stable and efficient learning.</p>
                 <div class="mt-6 grid grid-cols-2 gap-8 text-center">
@@ -289,7 +289,7 @@
     <div class="slide">
         <div class="slide-content">
             <h2 class="text-center text-blue-600">Key Classifications</h2>
-            <div class="space-y-10 max-w-4xl mx-auto">
+            <div class="space-y-10 max-w-5xl mx-auto">
                 <div>
                     <h3>Model-Free vs. Model-Based</h3>
                     <ul class="list-disc">
@@ -312,7 +312,7 @@
     <div class="slide">
         <div class="slide-content">
             <h2 class="text-center text-blue-600">Guided Discussion & Deep Dive</h2>
-            <ol class="text-xl space-y-6">
+            <ol class="text-xl space-y-6 max-w-5xl mx-auto">
                 <li>How did the historical narrative of Paper 2 help you understand the *motivation* behind algorithms like DQN and PPO?</li>
                 <li>What core problem did using a neural network in DQN solve, and what new problems (like "moving targets") did it introduce?</li>
                 <li>When would you choose a policy gradient method (like PPO) over a value-based one (like DQN)? Think about the environment's <strong>action space</strong>.</li>
@@ -326,7 +326,7 @@
     <div class="slide">
         <div class="slide-content">
             <h2 class="text-center text-blue-600">Key Takeaways</h2>
-            <div class="space-y-8 max-w-3xl mx-auto mt-8">
+            <div class="space-y-8 max-w-5xl mx-auto mt-8">
                 <div class="flex items-start space-x-4">
                     <span class="text-3xl">&#129504;</span>
                     <p class="text-xl"><strong>The Core Idea is Simple:</strong> RL is a powerful paradigm where an agent learns to maximize a cumulative reward through trial and error in an environment.</p>
