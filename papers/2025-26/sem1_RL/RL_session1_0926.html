@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RL Paper Review Session</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            overscroll-behavior: none;
+        }
+        .slide {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            padding: 4rem;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            z-index: 1;
+        }
+        .slide-content {
+            width: 100%;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+            padding: 4rem;
+            border: 1px solid #e2e8f0;
+            min-height: 75vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .nav-button {
+            position: fixed;
+            z-index: 10;
+            bottom: 2rem;
+            background-color: white;
+            color: #475569;
+            border-radius: 9999px;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .nav-button:hover {
+            background-color: #f1f5f9;
+            transform: scale(1.1);
+        }
+        #prev-btn {
+            right: 6rem;
+        }
+        #next-btn {
+            right: 2rem;
+        }
+        .slide-counter {
+            position: fixed;
+            z-index: 10;
+            bottom: 2.5rem;
+            left: 2.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #64748b;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        h1 { font-size: 3rem; font-weight: 700; line-height: 1.2; }
+        h2 { font-size: 2.25rem; font-weight: 600; margin-bottom: 2rem; }
+        h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+        p { font-size: 1.125rem; line-height: 1.75; color: #475569; }
+        ul, ol { list-style-position: inside; padding-left: 1.5rem; margin-top: 1rem; font-size: 1.125rem; line-height: 1.75; color: #475569; }
+        li { margin-bottom: 0.75rem; }
+        code {
+            background-color: #e2e8f0;
+            color: #334155;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+        .paper-ref {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+        <div class="slide-content text-center">
+            <h1 class="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-500 pb-2">RL team Paper Review Session</h1>
+            <p class="text-2xl mt-4 text-slate-600">Foundations and Evolution of Reinforcement Learning</p>
+            <div class="mt-12 text-left max-w-2xl mx-auto border-t pt-8">
+                <p class="paper-ref text-lg"><strong>Paper 1:</strong> "Introduction to Reinforcement Learning" by Ghasemi & Ebrahimi.</p>
+                <p class="paper-ref text-lg mt-2"><strong>Paper 2:</strong> "Understanding Reinforcement Learning Algorithms" by Chadi & Mousannif.</p>
+            </div>
+            <p class="mt-16 text-lg font-semibold">Session Leader: Subin Hyun</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Agenda -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">Agenda</h2>
+            <ol class="text-2xl space-y-6 max-w-3xl mx-auto mt-8">
+                <li><strong>High-Level Overview:</strong> Comparing the two papers' approaches.</li>
+                <li><strong>The Foundations:</strong> What is Reinforcement Learning?</li>
+                <li><strong>The Evolutionary Path of Algorithms:</strong> A story of solving limitations.</li>
+                <li><strong>Key Concepts & Classifications:</strong> Organizing the algorithm landscape.</li>
+                <li><strong>Guided Discussion & Deep Dive:</strong> Connecting the concepts.</li>
+                <li><strong>Key Takeaways:</strong> Summarizing our discussion.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Slide 3: High-Level Overview -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">Two Papers, Two Perspectives</h2>
+            <div class="grid md:grid-cols-2 gap-12 mt-8">
+                <div class="bg-slate-50 p-8 rounded-2xl">
+                    <h3 class="text-slate-800">Paper 1: The "What"</h3>
+                    <p class="font-semibold text-indigo-600">A Foundational, Bottom-Up Introduction</p>
+                    <p class="mt-4">This paper reads like a textbook chapter. It systematically defines core concepts first (MDPs, Bellman Equations) and then classifies algorithms based on them.</p>
+                    <p class="mt-6 font-semibold text-slate-700">Strength: Excellent for building a solid, first-principles understanding.</p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-2xl">
+                    <h3 class="text-slate-800">Paper 2: The "Why"</h3>
+                    <p class="font-semibold text-indigo-600">A Historical, Problem-Solution Narrative</p>
+                    <p class="mt-4">This paper tells the story of how algorithms evolved to fix the weaknesses of their predecessors, creating a clear timeline of innovation.</p>
+                    <p class="mt-6 font-semibold text-slate-700">Strength: Perfect for understanding the motivation behind modern algorithms.</p>
+                </div>
+            </div>
+            <p class="text-center mt-12 text-xl font-medium">Together, they give us both the theoretical groundwork and the practical "why".</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: The Foundations (1/3) - The Core Loop -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600 !mb-4">The Foundations: The Core Loop</h2>
+            <p class="text-center max-w-4xl mx-auto">At its heart, RL is about an <strong>Agent</strong> learning to make decisions by interacting with an <strong>Environment</strong> to achieve a goal.</p>
+            <div class="my-2 text-center">
+                 <img src="https://storage.googleapis.com/maker-media-project-images/2255/RL_agent_environment_loop.png" alt="Reinforcement Learning agent-environment loop diagram" class="mx-auto rounded-lg max-h-52" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/475569?text=Agent-Environment+Loop';">
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <ol class="text-lg space-y-2">
+                    <li>The agent observes the environment's current <strong>State (S<sub>t</sub>)</strong>.</li>
+                    <li>Based on the state, the agent chooses an <strong>Action (A<sub>t</sub>)</strong>.</li>
+                    <li>The environment reacts, giving the agent a <strong>Reward (R<sub>t+1</sub>)</strong> and a new <strong>State (S<sub>t+1</sub>)</strong>.</li>
+                </ol>
+                <p class="mt-4 text-center text-xl font-semibold bg-indigo-50 p-4 rounded-lg text-indigo-800">The Agent's Goal: Maximize the cumulative reward over time.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: The Foundations (2/3) - The Language of RL -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">The Language of RL: Markov Decision Process</h2>
+            <p class="text-center mb-8">This interaction is formally described by a <strong>Markov Decision Process (MDP)</strong>.</p>
+            <div class="space-y-4 max-w-3xl mx-auto">
+                <p><strong>S</strong>: A set of all possible <strong>states</strong> the agent can be in.</p>
+                <p><strong>A</strong>: A set of all possible <strong>actions</strong> the agent can take.</p>
+                <p><strong>P</strong>: The <strong>transition probability</strong> <code>P(s'|s, a)</code>. The rules of the environment; the likelihood of ending in state <code>s'</code> after taking action <code>a</code> in state <code>s</code>.</p>
+                <p><strong>R</strong>: The <strong>reward function</strong>. The immediate feedback for taking an action in a state.</p>
+                <p><strong>&gamma;</strong>: The <strong>discount factor</strong> (0 &le; &gamma; &le; 1). It determines the importance of future rewards. A high gamma means the agent is far-sighted.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: The Foundations (3/3) - The Agent's Brain -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">The Agent's Brain: Policy & Value</h2>
+            <p class="text-center mb-8">How does the agent decide what to do? It uses two key functions:</p>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="border-l-4 border-blue-500 pl-6">
+                    <h3 class="text-blue-700">Policy (&pi;)</h3>
+                    <p>The agent's strategy or "brain." It maps states to actions.</p>
+                    <ul class="mt-4 list-disc">
+                        <li><strong>Deterministic:</strong> &pi;(s) &rarr; a (In this state, always do this).</li>
+                        <li><strong>Stochastic:</strong> &pi;(a|s) &rarr; probability (In this state, here are the chances I'll do each action).</li>
+                    </ul>
+                    <p class="mt-4 font-bold">Goal: Find the optimal policy, &pi;<sub>*</sub>.</p>
+                </div>
+                <div class="border-l-4 border-green-500 pl-6">
+                    <h3 class="text-green-700">Value Function (V, Q)</h3>
+                    <p>Predicts the expected future reward. It judges the "goodness" of states or actions.</p>
+                    <ul class="mt-4 list-disc">
+                        <li><strong>State-Value (V<sup>&pi;</sup>(s)):</strong> "How good is it to be in this state if I follow policy &pi;?"</li>
+                        <li><strong>Action-Value (Q<sup>&pi;</sup>(s, a)):</strong> "How good is it to take this specific action from this state, and then follow policy &pi;?"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 7: The Evolutionary Path (1/4) - Q-Learning -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">The Evolutionary Path (1/4)</h2>
+            <div class="max-w-3xl mx-auto">
+                <h3>Algorithm: Q-Learning</h3>
+                <p><strong>Motivation:</strong> A simple, powerful way to solve the RL problem without needing a model of the environment (it's <em>model-free</em>).</p>
+                <p class="mt-4"><strong>Inner Workings:</strong> It uses a giant lookup table (a "Q-table") to store the value for every possible state-action pair. It learns by updating table entries based on the rewards it receives.</p>
+                <p class="mt-6 text-red-600 bg-red-50 p-4 rounded-lg"><strong>Limitation: The Curse of Dimensionality.</strong> The table becomes impossibly large for complex problems with millions of states (like chess) or continuous states (like a robot's joint angle).</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 8: The Evolutionary Path (2/4) - DQN -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">The Evolutionary Path (2/4)</h2>
+            <div class="max-w-3xl mx-auto">
+                <h3>Algorithm: Deep Q-Network (DQN)</h3>
+                <p><strong>Motivation:</strong> To solve Q-learning's scaling problem. Instead of a table, it uses a neural network to <em>approximate</em> the Q-value function: <code>Q(s, a; &theta;)</code>.</p>
+                <div class="mt-4 space-y-4">
+                    <p><strong>Key Innovation 1: Experience Replay.</strong> Stores past transitions (state, action, reward, next_state) and samples them randomly to train the network. This breaks correlations and stabilizes learning.</p>
+                    <p><strong>Key Innovation 2: Target Network.</strong> Uses a second, slowly-updated network as a stable target for Q-value updates, preventing the agent from "chasing a moving target."</p>
+                </div>
+                <p class="mt-6 text-red-600 bg-red-50 p-4 rounded-lg"><strong>Limitation:</strong> The <code>argmax</code> operation used to select the best action makes it unsuitable for environments with <strong>continuous action spaces</strong> (e.g., how much to turn a steering wheel).</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 9: The Evolutionary Path (3/4) - REINFORCE -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">The Evolutionary Path (3/4)</h2>
+            <div class="max-w-3xl mx-auto">
+                <h3>Algorithm: REINFORCE (Policy Gradient)</h3>
+                <p><strong>Motivation:</strong> A paradigm shift. Instead of learning a value function and deriving a policy, why not learn the policy <strong>directly</strong>? This is a more natural fit for continuous action spaces.</p>
+                <p class="mt-4"><strong>Inner Workings:</strong> The policy itself is a neural network <code>&pi;(a|s; &theta;)</code>. It directly adjusts the network's parameters <code>&theta;</code> via gradient ascent to make actions that led to high rewards more likely.</p>
+                <p class="mt-6 text-red-600 bg-red-50 p-4 rounded-lg"><strong>Limitation: High Variance.</strong> The learning signal is very noisy. In a long sequence of actions, it's hard to assign credit and know which specific action was responsible for the final good or bad outcome.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 10: The Evolutionary Path (4/4) - Actor-Critic -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">The Evolutionary Path (4/4)</h2>
+            <div class="max-w-3xl mx-auto">
+                <h3>Algorithm Family: Actor-Critic Methods (PPO, A2C, etc.)</h3>
+                <p><strong>Motivation:</strong> Combine the strengths of value-based (DQN) and policy-based (REINFORCE) methods to get more stable and efficient learning.</p>
+                <div class="mt-6 grid grid-cols-2 gap-8 text-center">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-lg text-blue-800">The Actor</h4>
+                        <p>A policy network that decides which action to take.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-lg text-green-800">The Critic</h4>
+                        <p>A value network that evaluates how good that action was.</p>
+                    </div>
+                </div>
+                <p class="mt-8 font-semibold text-indigo-800 bg-indigo-50 p-4 rounded-lg"><strong>The Synergy:</strong> The Critic provides a low-variance, stable learning signal (e.g., "that was a better-than-average action") to guide the Actor, solving the high-variance problem of pure policy gradient methods.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Key Concepts & Classifications -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">Key Classifications</h2>
+            <div class="space-y-10 max-w-4xl mx-auto">
+                <div>
+                    <h3>Model-Free vs. Model-Based</h3>
+                    <ul class="list-disc">
+                        <li><strong>Model-Free:</strong> Learns a policy or value function directly from trial and error. Doesn't know the environment's rules. (e.g., Q-learning, DQN, PPO).</li>
+                        <li><strong>Model-Based:</strong> Tries to learn a model of the environment's rules (the transition probabilities). Can then "plan" by simulating actions before taking them.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>On-Policy vs. Off-Policy</h3>
+                    <ul class="list-disc">
+                        <li><strong>On-Policy:</strong> The agent learns from actions taken by its <em>current</em> policy. It learns "on the job." (e.g., SARSA, REINFORCE, PPO).</li>
+                        <li><strong>Off-Policy:</strong> The agent can learn from actions taken by a <em>different</em> policy (e.g., old experiences from a replay buffer, or human demonstration). (e.g., Q-learning, DQN).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slide 12: Guided Discussion -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">Guided Discussion & Deep Dive</h2>
+            <ol class="text-xl space-y-6">
+                <li>How did the historical narrative of Paper 2 help you understand the *motivation* behind algorithms like DQN and PPO?</li>
+                <li>What core problem did using a neural network in DQN solve, and what new problems (like "moving targets") did it introduce?</li>
+                <li>When would you choose a policy gradient method (like PPO) over a value-based one (like DQN)? Think about the environment's <strong>action space</strong>.</li>
+                <li>Paper 2 mentions the "overestimation bias" that led to TD3. Why might a function approximator like a neural network be prone to overestimating Q-values?</li>
+                <li>What do you think is the <em>next</em> major challenge in RL that future algorithms will need to solve (e.g., sample efficiency, safety, exploration)?</li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- Slide 13: Key Takeaways -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 class="text-center text-blue-600">Key Takeaways</h2>
+            <div class="space-y-8 max-w-3xl mx-auto mt-8">
+                <div class="flex items-start space-x-4">
+                    <span class="text-3xl">&#129504;</span>
+                    <p class="text-xl"><strong>The Core Idea is Simple:</strong> RL is a powerful paradigm where an agent learns to maximize a cumulative reward through trial and error in an environment.</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <span class="text-3xl">&#128200;</span>
+                    <p class="text-xl"><strong>Evolution is Driven by Limitations:</strong> The history of RL algorithms is a story of identifying a weakness (scaling, instability) and proposing a new architecture to solve it.</p>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <span class="text-3xl">&#129309;</span>
+                    <p class="text-xl"><strong>Modern Methods are Hybrids:</strong> State-of-the-art algorithms like PPO combine direct policy search with stabilizing value estimates in an Actor-Critic framework.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 14: Thank You -->
+    <div class="slide">
+        <div class="slide-content text-center">
+            <h1 class="text-6xl font-bold text-slate-800">Thank You</h1>
+            <p class="text-3xl mt-8 text-slate-500">Questions & Open Discussion</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="slide-counter" id="slide-counter">1 / 14</div>
+    <div class="nav-button" id="prev-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+    </div>
+    <div class="nav-button" id="next-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const slideCounter = document.getElementById('slide-counter');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+            });
+            slides[index].classList.add('active');
+            slideCounter.textContent = `${index + 1} / ${totalSlides}`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>
+
