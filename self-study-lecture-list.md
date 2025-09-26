@@ -4,7 +4,7 @@ These lectures are typically used as intro for beginners who are getting started
 ## Getting started to ML basic (mandatory for beginners)
 ### 1. Easy basic tutorial of concepts
 
-[Korean, real basic lecture](https://www.youtube.com/playlist?list=PLfLgtT94nNq1DrREU_qG2w4yd2ZzJb-FG)
+[Real basic lecture (Korean)](https://www.youtube.com/playlist?list=PLfLgtT94nNq1DrREU_qG2w4yd2ZzJb-FG)
 
 ### 2. Statquest
 
