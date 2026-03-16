@@ -9,7 +9,7 @@ _GUGC student Machine Learning club repo for paper reviews, presentations, proje
 
 ## 📚 Activities
 
-### 1️⃣ Bi-weekly Machine Learning Study Group
+### 1️⃣ Weekly Machine Learning Study Group
 - Members join small groups to review papers of their interest.
 - Each group uploads a summary in `papers/{semester}/{group}/`.
 
